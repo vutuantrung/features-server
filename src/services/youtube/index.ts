@@ -1,8 +1,9 @@
 import fs from 'fs';
 import moment from 'moment';
-import { getInfo, getInfoOptions } from 'ytdl-core';
+import { getInfo } from 'ytdl-core';
 import { secondsToHms } from '../../helpers/helpers';
 import { getAsync } from '../../helpers/apiHelpers';
+import { v4 as uuidv4 } from 'uuid';
 
 const TAG = 'YOUTUBE';
 
@@ -48,9 +49,12 @@ async function getVideoData(url: string) {
         formats: dataVideoFormat,
     };
 
-    fs.writeFileSync('./data/videoData.json', JSON.stringify(videoData));
+    const id = uuidv4();
+    const saveLocalData = { id, ...videoData };
 
-    return videoData;
+    fs.writeFileSync('src/data/videoData.json', JSON.stringify(saveLocalData));
+
+    return { id, videoData };
 }
 
 export { getVideoData };
