@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 
-async function getAsync(url: string, headers: any, params: any) {
+async function getAsync(url: string, headers: any = {}, params: any = {}) {
     try {
         const response = await axios.get(url, {
             headers: headers,
@@ -13,7 +13,7 @@ async function getAsync(url: string, headers: any, params: any) {
     }
 }
 
-async function postAsync(url: string, data: any, headers: any, params: any) {
+async function postAsync(url: string, data: any, headers: any = {}, params: any = {}) {
     try {
         const response = await axios.post(
             url,
@@ -33,4 +33,4 @@ async function patchAsync() {}
 
 async function deleteAsync() {}
 
-module.exports = { getAsync, postAsync, putAsync, patchAsync, deleteAsync };
+export { getAsync, postAsync, putAsync, patchAsync, deleteAsync };
