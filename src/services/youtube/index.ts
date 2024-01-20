@@ -50,9 +50,8 @@ async function getVideoData(url: string) {
     };
 
     const id = uuidv4();
-    const saveLocalData = { id, ...videoData };
-
-    fs.writeFileSync('src/data/videoData.json', JSON.stringify(saveLocalData));
+    // const saveLocalData = { id, ...videoData };
+    // fs.writeFileSync('src/data/videoData.json', JSON.stringify(saveLocalData));
 
     return { id, videoData };
 }
