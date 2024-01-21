@@ -23,7 +23,7 @@ app.get('/', (_: Request, res: Response) => {
 app.get('/instagram/getAllUserMedia', async (req, res) => {
     let response = {} as ServerResponse;
     try {
-        console.log('api /instagram/getAllUserMedia called.');
+        console.log('api /instagram/getAllUserMedia processing...');
         const userId = req.query.userId;
         if (!userId || typeof userId !== 'string') {
             response.status = 400;
@@ -51,7 +51,7 @@ app.get('/instagram/getAllUserMedia', async (req, res) => {
 app.get('/instagram/getUserInfor', async (req, res) => {
     let response = {} as ServerResponse;
     try {
-        console.log('api /instagram/getUserInfor called.');
+        console.log('api /instagram/getUserInfor processing...');
         const username = req.query.username;
         if (!username || typeof username !== 'string') {
             response.status = 400;
@@ -78,7 +78,7 @@ app.get('/instagram/getUserInfor', async (req, res) => {
 app.post('/youtube/getYoutubeVideoData', async (req, res) => {
     let response = {} as ServerResponse;
     try {
-        console.log('api /youtube/getYoutubeVideoData called.');
+        console.log('api /youtube/getYoutubeVideoData processing...');
         const { url } = req.body;
         if (!url || typeof url !== 'string') {
             response.status = 400;
