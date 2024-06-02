@@ -92,14 +92,14 @@ app.post('/youtube/getYoutubeVideoData', async (req, res) => {
         };
         console.log('api /youtube/getYoutubeVideoData success. Video data id: ' + id);
     } catch (error: any) {
-        console.log('[getYoutubeVideoData]', error);
+        console.log('[error]', '[getYoutubeVideoData]', error.message);
         const errorStatus = parseInt(error.message.split('Status code:')[1].trim());
         response = {
             status: !isNaN(errorStatus) ? errorStatus : 500,
             data: null,
             error: error,
         };
-        console.log('[response]', response);
+        // console.log('[response]', response);
     } finally {
         res.status(response.status).send(response);
     }
